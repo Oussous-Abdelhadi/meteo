@@ -1,11 +1,13 @@
 body {
     margin: 0;
     background: url(https://i.ibb.co/wQvbcGk/pexels-photo-2114014.jpg);
-    /* background-size: cover;   */
     height: 100%;
     color: #f5f5f5;
 }
 
+.container {
+    margin-top: 100px !important;
+}
 #text-3D{
     text-align: center;
     text-transform: uppercase;
@@ -29,50 +31,29 @@ body {
     1px 30px 60px rgba(16,16,16,0.4);
 }
 
-.container {
+#form{
     display: flex;
     justify-content: center;
-    /* background-color: red; */
-    /* height: 300px; */
-}
-
-.content{
-    background-color: rgba(0, 0, 0, 0.6) ;
-    border: 3px  solid rgba(16,16,16,0.2);
-    box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
-    /* height: 250px; */
-    width: 500px;
-    text-align: center;
-    padding: 20px;
-}
-.detail{
-    display: flex;
-    justify-content: space-around;
-}
-.cityandtemp{
-    /* font-size: 2em; */
-}
-.detail
-{
-    display: flex;
 }
 
 input{
     color: #eee;
     background-color: transparent;
-    border: 1px solid #eee;
+    border: 1px solid #000;
     border-radius: 4px;
-    /* outline: 0; */
+    outline: 0;
     font-size: 16px;
     padding: 7px;
     transition: border .25s linear;
     box-shadow: 0 0 15px 0 rgba(0, 0, 0, 0.05);
     margin-right: 10px;
+    margin: auto;
+
 }
 
 button {
     cursor: pointer;
-    border: 1px solid #eee;
+    border: 1px solid #000;
     border-radius: 4px;
     background-color: transparent;
     color: white;
@@ -81,21 +62,75 @@ button {
 }
 
 button:hover{
-    background-color: rgba(255, 255, 255, 0.5);
+    background-color: rgba(0,0,0,0.4);
 
 }
 
-.temp{
-    display: flex;
-    align-items: center;
+
+@media(max-width:767px)
+{
+    .container{
+        height: fit-content;
+    }
+}
+.weather
+{
+    width: 100%;
+}
+@media(max-width:767px){
+    .weather
+    {
+        width: 100%;
+    }   
+}
+.card{
+    padding: 1rem;
+    margin: 1.5rem 4vw;
+    border-radius: 1rem;
+    background-color: rgba(0,0,0,0.4) !important;
+    border-color: rgba(238, 237, 237, 0.22);
+    box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
+    text-align: center;
+}
+@media(max-width:768px){
+    .card{
+        margin: 1.5rem;
+    }
+}
+.title{
     justify-content: center;
-    height: 120px;
+    position: absolute;
+    left: 50%;
+    -webkit-transform: translateX(-50%);
+    transform: translateX(-50%);
+    
+}
+.title p{
+    color: #dddddd;
+    margin-bottom: 0.2rem;
+    font-size: 1.2rem;
+}
+.temp{
+    font-size: 2.6rem;
+    margin-bottom: 1rem;
+    color: #dddddd;
+}
+.header{
+    color: #dddddd;
+}
+.col-4{
+    padding: 0 0.2rem;
+}
+.icon{
+    align-self: flex-end;
+    margin-right: -2.5rem;
+    margin-top: -2rem;
+    z-index: 999;
+}
+.icon img{
+    width: 5rem;
 }
 
-#city{
-    font-size: 2em;
-}
-
-#temp{
-    font-size: 50px;
+.value{
+    color: #dddddd;
 }

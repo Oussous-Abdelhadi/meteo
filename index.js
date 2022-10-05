@@ -14,16 +14,14 @@ async function weather() {
     console.log(data);
     // Descritpion & Icon
     var tempNow = data.main.temp - 273.15;
-    var tempMax = data.main.temp_min - 273.15;
-    var tempMin = data.main.temp_max - 273.15;
     var description = data.weather[0].description;
+    var windSpeed = Math.round(data.wind.speed * 3.6);
     var idIcon = data.weather[0].icon;
     var iconLink = `http://openweathermap.org/img/wn/${idIcon}@2x.png`;
     document.querySelector('#city').innerHTML = `${data.name}`;
     document.querySelector('#temp').innerHTML = `${Math.round(tempNow)}`;
-    document.querySelector('#tempmin').innerHTML = `${Math.round(tempMax)}`;
-    document.querySelector('#tempmax').innerHTML = `${Math.round(tempMin)}`;
     document.querySelector('#description').innerHTML = `${description}`;
+    document.querySelector('#vent').innerHTML = `${windSpeed} km/h`;
     document.querySelector('#icon').innerHTML = `<img src="${iconLink}" alt="icon météo" >`;  
 
     // API FOR POLLUTION
@@ -31,33 +29,27 @@ async function weather() {
     var lon = data.coord.lon;
     var pollution = await fetch(`http://api.openweathermap.org/data/2.5/air_pollution?lat=${lat}&lon=${lon}&appid=${clef}`);
     pollution = await pollution.json();
-    var no2 = pollution.list[0].components.no2;
+    var indice = pollution.list[0].main.aqi;
     
-    if (no2 < 50 ) {
-            document.querySelector('#pollution').innerHTML = `Polution : <br> &#128513;`;
-        }
-        else if (no2 > 50 && no2 < 100){
-            document.querySelector('#pollution').innerHTML = `&#128522;`;
-        }  
-        else if (no2 > 100 && no2 < 200){
-            document.querySelector('#pollution').innerHTML = `&#128528;`;
-        }
-        else if (no2 > 200 && no2 < 400){
-            document.querySelector('#pollution').innerHTML = `&#128532;`;
-        }
-        else if (no2 > 400){
-            document.querySelector('#pollution').innerHTML = `&#129314;`;
-        }
-    console.log(pollution.list[0].components);
+    switch (indice) {
+        case 1:
+            document.querySelector('#pollution').innerHTML = `Très bonne &#128513;`;
+            break;
+        case 2:
+            document.querySelector('#pollution').innerHTML = `Bonne &#128522;`;
+            break;
+        case 3:
+            document.querySelector('#pollution').innerHTML = `Moyenne &#128528;`;
+            break;   
+        case 4:
+            document.querySelector('#pollution').innerHTML = `Mauvaise &#128532;`;
+            break;  
+        case 5:
+            document.querySelector('#pollution').innerHTML = `Très mauvaise &#128567;`;
+            break;   
+        default:
+            break;
+    }
 }
 
 weather();
-
-
-// var today = new Date();
-// var dd = String(today.getDate()).padStart(2, '0');
-// var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
-// var yyyy = today.getFullYear();
-
-// today = dd + '.' + mm + '.' + yyyy;
-// document.write(today);
