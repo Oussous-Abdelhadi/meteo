@@ -34,19 +34,19 @@ async function weather() {
     
     switch (indice) {
         case 1:
-            document.querySelector('#pollution').innerHTML = `Très bonne &#128513;`;
+            document.querySelector('#pollution').innerHTML = `Très bonne`;
             break;
         case 2:
-            document.querySelector('#pollution').innerHTML = `Bonne &#128522;`;
+            document.querySelector('#pollution').innerHTML = `Bonne`;
             break;
         case 3:
-            document.querySelector('#pollution').innerHTML = `Moyenne &#128528;`;
+            document.querySelector('#pollution').innerHTML = `Moyenne`;
             break;   
         case 4:
-            document.querySelector('#pollution').innerHTML = `Mauvaise &#128532;`;
+            document.querySelector('#pollution').innerHTML = `Mauvaise`;
             break;  
         case 5:
-            document.querySelector('#pollution').innerHTML = `Très mauvaise &#128567;`;
+            document.querySelector('#pollution').innerHTML = `Très mauvaise`;
             break;   
         default:
             break;
