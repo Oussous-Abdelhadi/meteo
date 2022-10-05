@@ -1,0 +1,101 @@
+body {
+    margin: 0;
+    background: url(https://i.ibb.co/wQvbcGk/pexels-photo-2114014.jpg);
+    /* background-size: cover;   */
+    height: 100%;
+    color: #f5f5f5;
+}
+
+#text-3D{
+    text-align: center;
+    text-transform: uppercase;
+    font-family: verdana;
+    font-size: 5em;
+    font-weight: 700;
+    color: #f5f5f5;
+    text-shadow: 1px 1px 1px #919191,
+        1px 2px 1px #919191,
+        1px 3px 1px #919191,
+        1px 4px 1px #919191,
+        1px 5px 1px #919191,
+        1px 6px 1px #919191,
+        1px 7px 1px #919191,
+        1px 8px 1px #919191,
+        1px 9px 1px #919191,
+        1px 10px 1px #919191,
+    1px 18px 6px rgba(16,16,16,0.4),
+    1px 22px 10px rgba(16,16,16,0.2),
+    1px 25px 35px rgba(16,16,16,0.2),
+    1px 30px 60px rgba(16,16,16,0.4);
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    /* background-color: red; */
+    /* height: 300px; */
+}
+
+.content{
+    background-color: rgba(0, 0, 0, 0.6) ;
+    border: 3px  solid rgba(16,16,16,0.2);
+    box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
+    /* height: 250px; */
+    width: 500px;
+    text-align: center;
+    padding: 20px;
+}
+.detail{
+    display: flex;
+    justify-content: space-around;
+}
+.cityandtemp{
+    /* font-size: 2em; */
+}
+.detail
+{
+    display: flex;
+}
+
+input{
+    color: #eee;
+    background-color: transparent;
+    border: 1px solid #eee;
+    border-radius: 4px;
+    /* outline: 0; */
+    font-size: 16px;
+    padding: 7px;
+    transition: border .25s linear;
+    box-shadow: 0 0 15px 0 rgba(0, 0, 0, 0.05);
+    margin-right: 10px;
+}
+
+button {
+    cursor: pointer;
+    border: 1px solid #eee;
+    border-radius: 4px;
+    background-color: transparent;
+    color: white;
+    margin: auto;
+    padding: 7px;
+}
+
+button:hover{
+    background-color: rgba(255, 255, 255, 0.5);
+
+}
+
+.temp{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 120px;
+}
+
+#city{
+    font-size: 2em;
+}
+
+#temp{
+    font-size: 50px;
+}
