@@ -7,6 +7,7 @@ let cityName = parse[1];
 
 async function weather() {
 
+
     // API CALL
     var clef = "23d24718ba6e91358ea2c75bf11f77cc";
     var data = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${clef}&lang=fr`);
@@ -53,3 +54,4 @@ async function weather() {
 }
 
 weather();
+

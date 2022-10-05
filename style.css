@@ -51,6 +51,10 @@ input{
 
 }
 
+input::placeholder{
+    color: #eee;
+}
+
 button {
     cursor: pointer;
     border: 1px solid #000;
@@ -75,7 +79,7 @@ button:hover{
 }
 .weather
 {
-    width: 100%;
+    width: 100%; 
 }
 @media(max-width:767px){
     .weather
@@ -133,4 +137,22 @@ button:hover{
 
 .value{
     color: #dddddd;
+}
+
+#img{
+    position: absolute;
+    left: -600px;
+    width: 600px;
+    -webkit-animation: slide 0.5s forwards;
+    -webkit-animation-delay: 2s;
+    animation: slide 0.5s forwards;
+    animation-delay: 2s;
+}
+
+@-webkit-keyframes img {
+    100% { left: 0; }
+}
+
+@keyframes img {
+    100% { left: 0; }
 }
