@@ -31,31 +31,35 @@ const weather = () => {
 
 
 const printAddress = () => {
-  address.then(async (data) => {
-    var lat = data.coord.lat;
-    var lon = data.coord.lon;
-    var pollution = await fetch(`http://api.openweathermap.org/data/2.5/air_pollution?lat=${lat}&lon=${lon}&appid=${clef}`);
-    pollution = await pollution.json();
-    var indice = pollution.list[0].main.aqi;
-    switch (indice) {
-        case 1:
-            document.querySelector('#pollution').innerHTML = `Très bonne`;
-            break;
-        case 2:
-            document.querySelector('#pollution').innerHTML = `Bonne`;
-            break;
-        case 3:
-            document.querySelector('#pollution').innerHTML = `Moyenne`;
-            break;   
-        case 4:
-            document.querySelector('#pollution').innerHTML = `Mauvaise`;
-            break;  
-        case 5:
-            document.querySelector('#pollution').innerHTML = `Très mauvaise`;
-            break;   
-        default:
-            break;
-        }
+  address.then( (data) => {
+    async function  test() {
+        var lat = data.coord.lat;
+        var lon = data.coord.lon;
+        var pollution = await fetch(`http://api.openweathermap.org/data/2.5/air_pollution?lat=${lat}&lon=${lon}&appid=${clef}`);
+        pollution = await pollution.json();
+        var indice = pollution.list[0].main.aqi;
+        switch (indice) {
+            case 1:
+                document.querySelector('#pollution').innerHTML = `Très bonne`;
+                break;
+            case 2:
+                document.querySelector('#pollution').innerHTML = `Bonne`;
+                break;
+            case 3:
+                document.querySelector('#pollution').innerHTML = `Moyenne`;
+                break;   
+            case 4:
+                document.querySelector('#pollution').innerHTML = `Mauvaise`;
+                break;  
+            case 5:
+                document.querySelector('#pollution').innerHTML = `Très mauvaise`;
+                break;   
+            default:
+                break;
+        
+    }
+}
+test();
     });
 };
                     
