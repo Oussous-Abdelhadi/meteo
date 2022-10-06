@@ -14,6 +14,7 @@ const address = fetch(`https://api.openweathermap.org/data/2.5/weather?q=${cityN
 const weather = () => {
     address.then((data) =>{
         // Descritpion & Icon
+        console.log(data);
         var tempNow = data.main.temp - 273.15;
         var description = data.weather[0].description;
         var windSpeed = Math.round(data.wind.speed * 3.6);
@@ -35,7 +36,7 @@ const printAddress = () => {
     async function  test() {
         var lat = data.coord.lat;
         var lon = data.coord.lon;
-        var pollution = await fetch(`http://api.openweathermap.org/data/2.5/air_pollution?lat=${lat}&lon=${lon}&appid=${clef}`);
+        var pollution = await fetch(`https://api.openweathermap.org/data/2.5/air_pollution?lat=${lat}&lon=${lon}&appid=${clef}`);
         pollution = await pollution.json();
         var indice = pollution.list[0].main.aqi;
         switch (indice) {
