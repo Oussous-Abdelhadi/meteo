@@ -2,9 +2,9 @@ let url = window.location.href;
 let parse = url.split('=');
 let cityName = parse[1];
 
-//   Qualite air
+// Données météo ville 
 var clef = "23d24718ba6e91358ea2c75bf11f77cc";
-const address = fetch(`https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${clef}&lang=fr`)
+const object = fetch(`https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${clef}&lang=fr`)
   .then((response) => response.json())
   .then((data) => {
       return data;
@@ -12,7 +12,7 @@ const address = fetch(`https://api.openweathermap.org/data/2.5/weather?q=${cityN
 
 
 const weather = () => {
-    address.then((data) =>{
+    object.then((data) =>{
         // Descritpion & Icon
         console.log(data);
         var tempNow = data.main.temp - 273.15;
@@ -30,10 +30,9 @@ const weather = () => {
 }
 
 
-
-const printAddress = () => {
-  address.then( (data) => {
-    async function  test() {
+// Récupere les données concernant la qualité de l'air et l'affiche
+const air = () => {
+  object.then(async  (data) => {
         var lat = data.coord.lat;
         var lon = data.coord.lon;
         var pollution = await fetch(`https://api.openweathermap.org/data/2.5/air_pollution?lat=${lat}&lon=${lon}&appid=${clef}`);
@@ -57,13 +56,10 @@ const printAddress = () => {
                 break;   
             default:
                 break;
-        
-    }
-}
-test();
+        }
     });
 };
                     
 weather();
-printAddress();
+air();
                     
